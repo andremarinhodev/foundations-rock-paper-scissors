@@ -19,5 +19,8 @@ function getHumanChoice() {
     return convertChoice(choice);
 }
 
+let humanScore = 0;
+let computerScore = 0;
+
 console.log(getComputerChoice());
 console.log(getHumanChoice());
