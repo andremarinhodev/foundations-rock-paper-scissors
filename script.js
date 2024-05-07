@@ -1,5 +1,4 @@
-function getComputerChoice() {
-    let choice = Math.floor(Math.random() * 3 ) + 1;
+function convertChoice(choice) {
     switch (choice){
         case 1:
             return 'Rock';
@@ -10,4 +9,15 @@ function getComputerChoice() {
     }
 }
 
+function getComputerChoice() {
+    let choice = Math.floor(Math.random() * 3 ) + 1;
+    return convertChoice(choice);
+}
+
+function getHumanChoice() {
+    let choice = Number(prompt("Choose one(digit only the correspondent number):\n1-Rock\n2-Paper\n3-Scissors"));
+    return convertChoice(choice);
+}
+
 console.log(getComputerChoice());
+console.log(getHumanChoice());
