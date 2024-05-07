@@ -19,21 +19,29 @@ function getHumanChoice() {
     return convertChoice(choice);
 }
 
-let humanScore = 0;
-let computerScore = 0;
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+    
+    function playRound(humanChoice, computerChoice) {
+        if (humanChoice === computerChoice) {
+            console.log("It's a draw! You both chose " + humanChoice);
+        } else if ((humanChoice === "Paper" && computerChoice === "Rock") 
+                || (humanChoice === "Rock" && computerChoice === "Scissors") 
+                || (humanChoice === "Scissors" && computerChoice === "Paper")) {
+            console.log("You won, " + humanChoice + " beats " + computerChoice + ".");
+            humanScore++;
+        } else {
+            console.log("You lose, " + computerChoice + " beats " + humanChoice + ".");
+            computerScore++;
+        }
+    }
 
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-        console.log("It's a draw! You both chose " + humanChoice);
-    } else if ((humanChoice === "Paper" && computerChoice === "Rock") 
-            || (humanChoice === "Rock" && computerChoice === "Scissors") 
-            || (humanChoice === "Scissors" && computerChoice === "Paper")) {
-        console.log("You won, " + humanChoice + " beats " + computerChoice + ".");
-        humanScore++;
-    } else {
-        console.log("You lose, " + computerChoice + " beats " + humanChoice + ".");
-        computerScore++;
+    for(let i = 0; i < 5; i++) {
+        playRound(getHumanChoice(),getComputerChoice());
+        console.log("Human Score: " + humanScore);
+        console.log("Computer Score: " + computerScore);
     }
 }
 
-playRound(getHumanChoice(),getComputerChoice());
+playGame();
